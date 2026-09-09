@@ -1,0 +1,28 @@
+# StockBI — 本地开发环境
+# MySQL 跑在容器里；后端(FastAPI)与前端(Vite)在本机开发运行，避免容器内热重载折腾。
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: stockbi-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: stockbi
+      MYSQL_USER: stockbi
+      MYSQL_PASSWORD: stockbi123
+      TZ: Asia/Shanghai
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      # 首次创建数据目录时自动执行；改表结构后需 docker compose down -v 重建
+      - ./init_db:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-proot123"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  mysql_data:

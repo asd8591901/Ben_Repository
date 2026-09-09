@@ -1,0 +1,25 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# --- Node / Vite ---
+node_modules/
+dist/
+*.local
+
+# --- 环境与密钥 ---
+.env
+.env.local
+
+# --- MySQL 容器数据卷 ---
+mysql_data/
+
+# --- 编辑器 / 系统 ---
+.DS_Store
+.idea/
+.vscode/
+*.swp

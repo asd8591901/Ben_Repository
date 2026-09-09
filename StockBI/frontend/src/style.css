@@ -1,0 +1,32 @@
+:root {
+  --bg: #0e1420;
+  --panel: #161e2e;
+  --panel-2: #1c2639;
+  --border: #26324a;
+  --text: #dbe3f0;
+  --text-dim: #8b96ab;
+  --up-a: #e5484d;   /* A股 红涨 */
+  --down-a: #16a34a; /* A股 绿跌 */
+  --up-us: #16a34a;  /* 美股 绿涨 */
+  --down-us: #e5484d;/* 美股 红跌 */
+  --accent: #4c8dff;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #app { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+
+a { color: var(--accent); }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: #2c3a56; border-radius: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
